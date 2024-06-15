@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        height: 100vh;
+      }
+      li {
+        list-style: none;
+      }
+      .wrapper {
+        height: 100%;
+        width: 100%;
+        background-color: #ccc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .tips-box {
+        margin: 100px 0 50px;
+      }
+      .tips-content {
+        font-size: 60rpx;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #000;
+        object-fit: cover !important;
+      }
+
+      .video-box {
+        width: 150px;
+        height: 150px;
+      }
+
+      .btn-box {
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      button {
+        width: 200px;
+        height: 40px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="tips-box">
+        <ul class="tips-content"></ul>
+      </div>
+      <div class="video-box">
+        <video></video>
+      </div>
+      <div class="btn-box">
+        <button type="default" class="start">开始</button>
+        <button type="default" class="stop">结束</button>
+      </div>
+    </div>
+    <script src="./videoCapture.js"></script>
+    <script>
+      const video = document.querySelector("video");
+      const text = document.querySelector(".tips-content");
+      const btn_start = document.querySelector(".start");
+      const btn_stop = document.querySelector(".stop");
+
+      const msgHandle = (msg) => {
+        const li = document.createElement("li");
+        li.textContent = msg;
+        text.appendChild(li);
+      };
+
+      const vc = new VideoCapture(video, msgHandle);
+
+      btn_start.onclick = () => {
+        vc.start();
+      };
+
+      btn_stop.onclick = () => {
+        vc.stop();
+      };
+
+      vc.onstart = async () => {
+        await vc.sleep(4000);
+        vc.stop();
+      };
+
+      vc.onstop = () => {
+        vc.getFile();
+        vc.downloadFile();
+      };
+    </script>
+  </body>
+</html>

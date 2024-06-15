@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ESLint Report</title>
+        <link rel="icon" type="image/png" sizes="any" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAHaAAAB2gGFomX7AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAABD1JREFUWMPFl11sk2UUx3/nbYtjxS1MF7MLMTECMgSTtSSyrQkLhAj7UBPnDSEGoxegGzMwojhXVpmTAA5iYpSoMQa8GBhFOrMFk03buei6yRAlcmOM0SEmU9d90b19jxcM1o5+sGnsc/e+z/l6ztf/HFFVMnns6QieeOCHBePGsHM+wrOtvLG2C4WRVDSSygNV7sCjlspxwDnPB44aols/DXk+mbMBmx/6OseITF1CuOtfevkPh2Uu+/jbdX8lujSScRlT5r7/QDlAfsRmfzmpnkQ/H3H13gf6bBrBn1uqK8WylgEnU8eZmk1repbfchJG1TyKyIKEwuBHFd3lD3naY3O1siiwXsVoBV2VgM1ht/QQUJk2ByqKghsQziYQ8ifKgexIXmuyzC4r67Y7R+xPAfuB/Nn3Cpva+0s7khpQVtZtd4bt51BWxtBYAiciprG7c7D4SixzU9PYalDL6110Ifb/w8W9eY7JqFeFHbO8fPGyLHwwFHJNJTSgwtVTB9oaw9BlQ+tO93vOxypoaQnfEYlI43SeCHDC4TDq9+51/h5fxr33q0ZfV9g04wat9Q943rjJgCp3952W2i8Bi6eDvdsfKj0cK/DYMRyXL4/sUJUmIHd2zYMezsvLaamp4WpcWN3BXSiHpuMwbGbZlnZ8tXY4rgosy+G7oRwQ0cAsd28YGgqfU5UjCZQDLALxDg+Hv/P5Rqvj4hwrS8izXzWb4spwc1GgENFnkpWRzxeuB+ssUHgLdb9UVdt8vpGdKQpze7n7y1U3DBChNRUuqOo9c+0+qpKKxyZqtAIYla7gY4JszAAQri93BSsMRZoyBcUC+w3Q3AyOA4sNhAOZ0q7Iq0b2vUNvK5zPgP+/H8+Zetdoa6uOikhdGurxebwvJY8Iz3V1rTMNAH+opEuQj5KTT/qA1yC+wyUjBm12OidaUtCcPNNX2h0Hx2JG69VulANZAJZJwfU7rzd/FHixuXniTdM0m4GtSQT7bTartqEh9yfImUEzkwKZmTwmo5a5JwkYBfcDL01/RkR5y8iWhtPBknB8ZxwtU9UjwOrrKCeizzc25nTGg1F/turEHoU9wMLpDvWKf8DTmNCAKnd/tqUTF4ElMXJ+A5rWDJS+41WsGWzALhJ+ErBWrLj9g+pqojHxlXJX8HGUg0BsR/x1yhxf3jm4cSzpQFLp6tmi6PEE7g1ZhtZ91ufpSZUAFa6gC+UoQslNaSmypT1U8mHKiUgEKS8KfgF4EpYunFI16tsHin+OG0LcgQK7yj7g6cSzpva2D3hKVNG0Y3mVO1BkqfSlmJrHBQ4uvM12gJHc6ETW8HZVfMRmXvyxxNC1Z/o839zyXlDuCr4nsC11J+MXueaVJWn6yPv+/pJtc9oLTNN4AeTvNGByd3rlhE2x9s5pLwDoHCy+grDzWmOZ95lUtLYj5Bma126Y8eX0/zj/ADxGyViSg4BXAAAAAElFTkSuQmCC">
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjk0LjgyNSAyNTguOTgyJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPg0KPHBhdGggZmlsbD0nIzgwODBGMicgZD0nTTk3LjAyMSw5OS4wMTZsNDguNDMyLTI3Ljk2MmMxLjIxMi0wLjcsMi43MDYtMC43LDMuOTE4LDBsNDguNDMzLDI3Ljk2MiBjMS4yMTEsMC43LDEuOTU5LDEuOTkzLDEuOTU5LDMuMzkzdjU1LjkyNGMwLDEuMzk5LTAuNzQ4LDIuNjkzLTEuOTU5LDMuMzk0bC00OC40MzMsMjcuOTYyYy0xLjIxMiwwLjctMi43MDYsMC43LTMuOTE4LDAgbC00OC40MzItMjcuOTYyYy0xLjIxMi0wLjctMS45NTktMS45OTQtMS45NTktMy4zOTR2LTU1LjkyNEM5NS4wNjMsMTAxLjAwOSw5NS44MSw5OS43MTYsOTcuMDIxLDk5LjAxNicvPg0KPHBhdGggZmlsbD0nIzRCMzJDMycgZD0nTTI3My4zMzYsMTI0LjQ4OEwyMTUuNDY5LDIzLjgxNmMtMi4xMDItMy42NC01Ljk4NS02LjMyNS0xMC4xODgtNi4zMjVIODkuNTQ1IGMtNC4yMDQsMC04LjA4OCwyLjY4NS0xMC4xOSw2LjMyNWwtNTcuODY3LDEwMC40NWMtMi4xMDIsMy42NDEtMi4xMDIsOC4yMzYsMCwxMS44NzdsNTcuODY3LDk5Ljg0NyBjMi4xMDIsMy42NCw1Ljk4Niw1LjUwMSwxMC4xOSw1LjUwMWgxMTUuNzM1YzQuMjAzLDAsOC4wODctMS44MDUsMTAuMTg4LTUuNDQ2bDU3Ljg2Ny0xMDAuMDEgQzI3NS40MzksMTMyLjM5NiwyNzUuNDM5LDEyOC4xMjgsMjczLjMzNiwxMjQuNDg4IE0yMjUuNDE5LDE3Mi44OThjMCwxLjQ4LTAuODkxLDIuODQ5LTIuMTc0LDMuNTlsLTczLjcxLDQyLjUyNyBjLTEuMjgyLDAuNzQtMi44ODgsMC43NC00LjE3LDBsLTczLjc2Ny00Mi41MjdjLTEuMjgyLTAuNzQxLTIuMTc5LTIuMTA5LTIuMTc5LTMuNTlWODcuODQzYzAtMS40ODEsMC44ODQtMi44NDksMi4xNjctMy41OSBsNzMuNzA3LTQyLjUyN2MxLjI4Mi0wLjc0MSwyLjg4Ni0wLjc0MSw0LjE2OCwwbDczLjc3Miw0Mi41MjdjMS4yODMsMC43NDEsMi4xODYsMi4xMDksMi4xODYsMy41OVYxNzIuODk4eicvPg0KPC9zdmc+">
+        <style>
+            body {
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-size: 16px;
+                font-weight: normal;
+                margin: 0;
+                padding: 0;
+                color: #333;
+            }
+
+            #overview {
+                padding: 20px 30px;
+            }
+
+            td,
+            th {
+                padding: 5px 10px;
+            }
+
+            h1 {
+                margin: 0;
+            }
+
+            table {
+                margin: 30px;
+                width: calc(100% - 60px);
+                max-width: 1000px;
+                border-radius: 5px;
+                border: 1px solid #ddd;
+                border-spacing: 0;
+            }
+
+            th {
+                font-weight: 400;
+                font-size: medium;
+                text-align: left;
+                cursor: pointer;
+            }
+
+            td.clr-1,
+            td.clr-2,
+            th span {
+                font-weight: 700;
+            }
+
+            th span {
+                float: right;
+                margin-left: 20px;
+            }
+
+            th span::after {
+                content: "";
+                clear: both;
+                display: block;
+            }
+
+            tr:last-child td {
+                border-bottom: none;
+            }
+
+            tr td:first-child,
+            tr td:last-child {
+                color: #9da0a4;
+            }
+
+            #overview.bg-0,
+            tr.bg-0 th {
+                color: #468847;
+                background: #dff0d8;
+                border-bottom: 1px solid #d6e9c6;
+            }
+
+            #overview.bg-1,
+            tr.bg-1 th {
+                color: #f0ad4e;
+                background: #fcf8e3;
+                border-bottom: 1px solid #fbeed5;
+            }
+
+            #overview.bg-2,
+            tr.bg-2 th {
+                color: #b94a48;
+                background: #f2dede;
+                border-bottom: 1px solid #eed3d7;
+            }
+
+            td {
+                border-bottom: 1px solid #ddd;
+            }
+
+            td.clr-1 {
+                color: #f0ad4e;
+            }
+
+            td.clr-2 {
+                color: #b94a48;
+            }
+
+            td a {
+                color: #3a33d1;
+                text-decoration: none;
+            }
+
+            td a:hover {
+                color: #272296;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="overview" class="bg-2">
+            <h1>ESLint Report</h1>
+            <div>
+                <span>51 problems (21 errors, 30 warnings)</span> - Generated on Wed Nov 30 2022 19:47:43 GMT+0800 (中国标准时间)
+            </div>
+        </div>
+        <table>
+            <tbody>
+                <tr class="bg-0" data-group="f-0">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\App.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-1">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\bottom-input\bottom-input.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-2" data-group="f-2">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\bottom-input\emoj.vue
+        <span>1 problem (1 error, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-2">
+    <td>14:16</td>
+    <td class="clr-2">Error</td>
+    <td>Type of the default value for &#39;emojiList&#39; prop must be a function.</td>
+    <td>
+        <a href="https://eslint.vuejs.org/rules/require-valid-default-prop.html" target="_blank" rel="noopener noreferrer">vue/require-valid-default-prop</a>
+    </td>
+</tr>
+
+<tr class="bg-2" data-group="f-3">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\bottom-input\minxi\chat.js
+        <span>10 problems (1 error, 9 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-3">
+    <td>46:11</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;info&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-3">
+    <td>66:7</td>
+    <td class="clr-2">Error</td>
+    <td>Unreachable code.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unreachable" target="_blank" rel="noopener noreferrer">no-unreachable</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-3">
+    <td>73:20</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;index&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-3">
+    <td>90:11</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;_this&#39; is assigned a value but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-3">
+    <td>118:11</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;_this&#39; is assigned a value but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-3">
+    <td>147:19</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;index&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-3">
+    <td>175:15</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-3">
+    <td>176:16</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;error&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-3">
+    <td>254:31</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;e&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-3">
+    <td>258:31</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;e&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-4">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\bottom-input\minxi\emoji.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-5">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\bottom-input\tool.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-2" data-group="f-6">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\chat-item.vue
+        <span>2 problems (2 errors, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-6">
+    <td>30:17</td>
+    <td class="clr-2">Error</td>
+    <td>Name &#34;Time&#34; is reserved in HTML.</td>
+    <td>
+        <a href="https://eslint.vuejs.org/rules/no-reserved-component-names.html" target="_blank" rel="noopener noreferrer">vue/no-reserved-component-names</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-6">
+    <td>63:34</td>
+    <td class="clr-2">Error</td>
+    <td>Empty block statement.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-empty" target="_blank" rel="noopener noreferrer">no-empty</a>
+    </td>
+</tr>
+
+<tr class="bg-1" data-group="f-7">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\chat-list.vue
+        <span>3 problems (0 errors, 3 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-7">
+    <td>160:20</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;item&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-7">
+    <td>178:29</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-7">
+    <td>190:29</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-8">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\msg-template\image.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-2" data-group="f-9">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\msg-template\parseHtml.js
+        <span>1 problem (1 error, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-9">
+    <td>234:16</td>
+    <td class="clr-2">Error</td>
+    <td>&#39;pos&#39; is already defined.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-redeclare" target="_blank" rel="noopener noreferrer">no-redeclare</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-10">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\msg-template\red-packet.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-11">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\msg-template\sound.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-12">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\msg-template\text.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-13">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\msg-template\time.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-14">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\msg-template\video-player-h5.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-15">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\msg-template\video.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-16">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\chat-msg\util.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-2" data-group="f-17">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\m-checkbox\m-checkbox.vue
+        <span>4 problems (3 errors, 1 warning)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-17">
+    <td>6:26</td>
+    <td class="clr-2">Error</td>
+    <td>Parsing error: The keyword &#39;static&#39; is reserved.</td>
+    <td>
+        <a href="https://eslint.vuejs.org/rules/no-parsing-error.html" target="_blank" rel="noopener noreferrer">vue/no-parsing-error</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-17">
+    <td>10:70</td>
+    <td class="clr-2">Error</td>
+    <td>Parsing error: The keyword &#39;static&#39; is reserved.</td>
+    <td>
+        <a href="https://eslint.vuejs.org/rules/no-parsing-error.html" target="_blank" rel="noopener noreferrer">vue/no-parsing-error</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-17">
+    <td>42:13</td>
+    <td class="clr-2">Error</td>
+    <td>The &#34;size&#34; property should be a constructor.</td>
+    <td>
+        <a href="https://eslint.vuejs.org/rules/require-prop-type-constructor.html" target="_blank" rel="noopener noreferrer">vue/require-prop-type-constructor</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-17">
+    <td>71:12</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;e&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-2" data-group="f-18">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\m-search\m-search.vue
+        <span>3 problems (2 errors, 1 warning)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-18">
+    <td>8:4</td>
+    <td class="clr-2">Error</td>
+    <td>Parsing error: x-invalid-end-tag.</td>
+    <td>
+        <a href="https://eslint.vuejs.org/rules/no-parsing-error.html" target="_blank" rel="noopener noreferrer">vue/no-parsing-error</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-18">
+    <td>8:5</td>
+    <td class="clr-2">Error</td>
+    <td>Parsing error: Void elements do not have end tags &#34;input&#34;</td>
+    <td>
+        <a href="https://github.com/prettier/eslint-plugin-prettier#options" target="_blank" rel="noopener noreferrer">prettier/prettier</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-18">
+    <td>38:21</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;oldVal&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-19">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\components\m-signBox\m-signBox.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-20">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\main.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-21">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\faceRecognition\index.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-22">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\feedback\index.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-23">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\home\index.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-2" data-group="f-24">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\login\index.vue
+        <span>3 problems (2 errors, 1 warning)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-24">
+    <td>83:15</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-24">
+    <td>153:15</td>
+    <td class="clr-2">Error</td>
+    <td>&#39;err&#39; is not defined.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-undef" target="_blank" rel="noopener noreferrer">no-undef</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-24">
+    <td>210:17</td>
+    <td class="clr-2">Error</td>
+    <td>&#39;err&#39; is not defined.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-undef" target="_blank" rel="noopener noreferrer">no-undef</a>
+    </td>
+</tr>
+
+<tr class="bg-2" data-group="f-25">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\login\question.vue
+        <span>3 problems (3 errors, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-25">
+    <td>8:50</td>
+    <td class="clr-2">Error</td>
+    <td>Parsing error: x-invalid-end-tag.</td>
+    <td>
+        <a href="https://eslint.vuejs.org/rules/no-parsing-error.html" target="_blank" rel="noopener noreferrer">vue/no-parsing-error</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-25">
+    <td>8:51</td>
+    <td class="clr-2">Error</td>
+    <td>Parsing error: Void elements do not have end tags &#34;br&#34;</td>
+    <td>
+        <a href="https://github.com/prettier/eslint-plugin-prettier#options" target="_blank" rel="noopener noreferrer">prettier/prettier</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-25">
+    <td>9:77</td>
+    <td class="clr-2">Error</td>
+    <td>Parsing error: x-invalid-end-tag.</td>
+    <td>
+        <a href="https://eslint.vuejs.org/rules/no-parsing-error.html" target="_blank" rel="noopener noreferrer">vue/no-parsing-error</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-26">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\message\message.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-1" data-group="f-27">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\personalCenter\index.vue
+        <span>1 problem (0 errors, 1 warning)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-27">
+    <td>204:12</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;e&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-1" data-group="f-28">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\prescription\prescriptionDetail.vue
+        <span>1 problem (0 errors, 1 warning)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-28">
+    <td>117:33</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-29">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\prescription\prescriptionList.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-30">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\realName\bankCard.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-31">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\realName\bankCardList.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-32">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\realName\bankCardPhone.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-33">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\realName\credentials.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-34">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\realName\idCard.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-35">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\realName\index.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-36">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\realName\practice.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-37">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\realName\sign.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-38">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\realName\title.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-39">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\setting\aboutUs.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-40">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\setting\accountSafety.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-1" data-group="f-41">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\setting\cancellation.vue
+        <span>2 problems (0 errors, 2 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-41">
+    <td>44:27</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-41">
+    <td>49:17</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-1" data-group="f-42">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\setting\index.vue
+        <span>2 problems (0 errors, 2 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-42">
+    <td>68:23</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-42">
+    <td>70:54</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-43">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\setting\phone.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-1" data-group="f-44">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\setting\phoneChange.vue
+        <span>3 problems (0 errors, 3 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-44">
+    <td>50:25</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-44">
+    <td>97:26</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-44">
+    <td>103:40</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-45">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\pages\setting\privateProtocol.vue
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-46">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\store\getters.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-47">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\store\index.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-2" data-group="f-48">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\store\modules\im.js
+        <span>2 problems (2 errors, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-48">
+    <td>13:15</td>
+    <td class="clr-2">Error</td>
+    <td>Do not access Object.prototype method &#39;hasOwnProperty&#39; from target object.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-prototype-builtins" target="_blank" rel="noopener noreferrer">no-prototype-builtins</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-48">
+    <td>22:7</td>
+    <td class="clr-2">Error</td>
+    <td>&#39;getTimInfo&#39; is not defined.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-undef" target="_blank" rel="noopener noreferrer">no-undef</a>
+    </td>
+</tr>
+
+<tr class="bg-1" data-group="f-49">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\store\modules\userInfo.js
+        <span>4 problems (0 errors, 4 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-49">
+    <td>47:12</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;commit&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-49">
+    <td>47:20</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;state&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-49">
+    <td>47:27</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;dispatch&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-49">
+    <td>48:34</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;reject&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-50">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\store\modules\ws.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-51">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\api.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-2" data-group="f-52">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\enums.js
+        <span>1 problem (1 error, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-52">
+    <td>38:7</td>
+    <td class="clr-2">Error</td>
+    <td>Parsing error: Identifier &#39;envEnum&#39; has already been declared</td>
+    <td>
+        <a href="" target="_blank" rel="noopener noreferrer"></a>
+    </td>
+</tr>
+
+<tr class="bg-2" data-group="f-53">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\im.js
+        <span>1 problem (1 error, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-53">
+    <td>6:8</td>
+    <td class="clr-2">Error</td>
+    <td>Parsing error: Identifier &#39;TIM&#39; has already been declared</td>
+    <td>
+        <a href="" target="_blank" rel="noopener noreferrer"></a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-54">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\index.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-55">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\permission.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-1" data-group="f-56">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\request.js
+        <span>2 problems (0 errors, 2 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-56">
+    <td>5:18</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;vm&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-56">
+    <td>41:48</td>
+    <td class="clr-1">Warning</td>
+    <td>&#39;res&#39; is defined but never used.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-unused-vars" target="_blank" rel="noopener noreferrer">no-unused-vars</a>
+    </td>
+</tr>
+
+<tr class="bg-0" data-group="f-57">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\tools.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-58">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\videoCapture.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-0" data-group="f-59">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\websocket.js
+        <span>0 problems</span>
+    </th>
+</tr>
+
+<tr class="bg-2" data-group="f-60">
+    <th colspan="4">
+        [+] C:\Users\檀庭稳\Desktop\yaoshi\src\utils\wxAuth.js
+        <span>2 problems (2 errors, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display: none;" class="f-60">
+    <td>7:87</td>
+    <td class="clr-2">Error</td>
+    <td>Unexpected comma in middle of array.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-sparse-arrays" target="_blank" rel="noopener noreferrer">no-sparse-arrays</a>
+    </td>
+</tr>
+
+<tr style="display: none;" class="f-60">
+    <td>23:22</td>
+    <td class="clr-2">Error</td>
+    <td>Promise executor functions should not be async.</td>
+    <td>
+        <a href="https://eslint.org/docs/rules/no-async-promise-executor" target="_blank" rel="noopener noreferrer">no-async-promise-executor</a>
+    </td>
+</tr>
+
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            var groups = document.querySelectorAll("tr[data-group]");
+            for (i = 0; i < groups.length; i++) {
+                groups[i].addEventListener("click", function() {
+                    var inGroup = document.getElementsByClassName(this.getAttribute("data-group"));
+                    this.innerHTML = (this.innerHTML.indexOf("+") > -1) ? this.innerHTML.replace("+", "-") : this.innerHTML.replace("-", "+");
+                    for (var j = 0; j < inGroup.length; j++) {
+                        inGroup[j].style.display = (inGroup[j].style.display !== "none") ? "none" : "table-row";
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

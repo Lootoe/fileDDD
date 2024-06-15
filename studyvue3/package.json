@@ -1,0 +1,38 @@
+{
+  "name": "studyvue3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "npm run build && vite preview",
+    "fix": "npx eslint --fix --ext .js,.vue src/ -c .\\.eslintrc.cjs"
+  },
+  "dependencies": {
+    "@types/node": "^20.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@vueuse/core": "^10.2.1",
+    "axios": "^1.4.0",
+    "pinia": "^2.1.4",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^6.3.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.15.1",
+    "naive-ui": "^2.34.4",
+    "prettier": "^3.0.0",
+    "sass": "^1.64.1",
+    "typescript": "^5.0.2",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.1",
+    "vite": "^4.4.5",
+    "vite-plugin-style-import": "^2.0.0",
+    "vue-tsc": "^1.8.5"
+  }
+}

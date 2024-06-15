@@ -1,0 +1,6 @@
+logs
+.vscode
+.hbuilderx
+/src/debug
+/src/static
+/src/manifest.json
